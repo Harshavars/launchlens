@@ -1,0 +1,127 @@
+{
+  "version": 2,
+  "project": {
+    "name": "Project Atlas · Embedded camera",
+    "start": "2027-01-04",
+    "launchTask": "G",
+    "tasks": [
+      {
+        "id": "A",
+        "name": "Electronics design",
+        "owner": "Hardware",
+        "days": 10,
+        "pred": []
+      },
+      {
+        "id": "B",
+        "name": "Prototype assembly",
+        "owner": "Manufacturing",
+        "days": 5,
+        "pred": [
+          "A"
+        ]
+      },
+      {
+        "id": "C",
+        "name": "Firmware development",
+        "owner": "Firmware",
+        "days": 20,
+        "pred": []
+      },
+      {
+        "id": "D",
+        "name": "System integration",
+        "owner": "Engineering",
+        "days": 5,
+        "pred": [
+          "B",
+          "C"
+        ]
+      },
+      {
+        "id": "E",
+        "name": "Validation & certification",
+        "owner": "Quality",
+        "days": 10,
+        "pred": [
+          "D"
+        ]
+      },
+      {
+        "id": "F",
+        "name": "Manufacturing readiness",
+        "owner": "Operations",
+        "days": 7,
+        "pred": [
+          "B"
+        ]
+      },
+      {
+        "id": "G",
+        "name": "Pilot build & launch",
+        "owner": "Program",
+        "days": 5,
+        "pred": [
+          "E",
+          "F"
+        ]
+      }
+    ],
+    "components": [
+      {
+        "id": "SEN-101",
+        "name": "Image sensor",
+        "product": "Atlas Rev A",
+        "tasks": [
+          "B"
+        ],
+        "available": 10,
+        "stock": 180,
+        "demand": 60,
+        "unitCost": 48,
+        "ltbStock": 300,
+        "ltbCost": 52
+      },
+      {
+        "id": "PMIC-202",
+        "name": "Power controller",
+        "product": "Atlas Rev A",
+        "tasks": [
+          "B"
+        ],
+        "available": 8,
+        "stock": 240,
+        "demand": 60,
+        "unitCost": 4,
+        "ltbStock": 500,
+        "ltbCost": 5
+      }
+    ],
+    "customers": [
+      {
+        "id": "CUS-1",
+        "name": "Northstar Robotics (sample)",
+        "product": "Atlas Rev A",
+        "components": [
+          "SEN-101",
+          "PMIC-202"
+        ],
+        "policy": "required",
+        "days": 15,
+        "cost": 8000
+      },
+      {
+        "id": "CUS-2",
+        "name": "FieldVision Labs (sample)",
+        "product": "Atlas Rev A",
+        "components": [
+          "SEN-101"
+        ],
+        "policy": "review",
+        "days": 0,
+        "cost": 0
+      }
+    ]
+  },
+  "decisions": []
+}

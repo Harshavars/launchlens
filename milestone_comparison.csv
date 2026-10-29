@@ -1,0 +1,8 @@
+id,name,owner,pred,duration,baselineStart,baselineEnd,baselineFloat,revisedStart,revisedEnd
+"A","Electronics design","Hardware","","10","0","10","5","0","10"
+"B","Prototype assembly","Manufacturing","A","5","10","15","5","20","25"
+"C","Firmware development","Firmware","","20","0","20","0","0","20"
+"D","System integration","Engineering","B|C","5","20","25","0","25","30"
+"E","Validation & certification","Quality","D","10","25","35","0","30","40"
+"F","Manufacturing readiness","Operations","B","7","15","22","13","25","32"
+"G","Pilot build & launch","Program","E|F","5","35","40","0","40","45"

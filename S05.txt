@@ -1,0 +1,3 @@
+SYNTHETIC PORTFOLIO EXAMPLE
+
+Engineering change: SEN-101 interface redesign requires 8 working days. Customer qualification requirements must be checked against the configuration register.

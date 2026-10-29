@@ -1,0 +1,329 @@
+{
+  "project": {
+    "name": "Project Atlas · Embedded camera",
+    "start": "2027-01-04",
+    "launchTask": "G",
+    "tasks": [
+      {
+        "id": "A",
+        "name": "Electronics design",
+        "owner": "Hardware",
+        "days": 10,
+        "pred": []
+      },
+      {
+        "id": "B",
+        "name": "Prototype assembly",
+        "owner": "Manufacturing",
+        "days": 5,
+        "pred": [
+          "A"
+        ]
+      },
+      {
+        "id": "C",
+        "name": "Firmware development",
+        "owner": "Firmware",
+        "days": 20,
+        "pred": []
+      },
+      {
+        "id": "D",
+        "name": "System integration",
+        "owner": "Engineering",
+        "days": 5,
+        "pred": [
+          "B",
+          "C"
+        ]
+      },
+      {
+        "id": "E",
+        "name": "Validation & certification",
+        "owner": "Quality",
+        "days": 10,
+        "pred": [
+          "D"
+        ]
+      },
+      {
+        "id": "F",
+        "name": "Manufacturing readiness",
+        "owner": "Operations",
+        "days": 7,
+        "pred": [
+          "B"
+        ]
+      },
+      {
+        "id": "G",
+        "name": "Pilot build & launch",
+        "owner": "Program",
+        "days": 5,
+        "pred": [
+          "E",
+          "F"
+        ]
+      }
+    ],
+    "components": [
+      {
+        "id": "SEN-101",
+        "name": "Image sensor",
+        "product": "Atlas Rev A",
+        "tasks": [
+          "B"
+        ],
+        "available": 10,
+        "stock": 180,
+        "demand": 60,
+        "unitCost": 48,
+        "ltbStock": 300,
+        "ltbCost": 52
+      },
+      {
+        "id": "PMIC-202",
+        "name": "Power controller",
+        "product": "Atlas Rev A",
+        "tasks": [
+          "B"
+        ],
+        "available": 8,
+        "stock": 240,
+        "demand": 60,
+        "unitCost": 4,
+        "ltbStock": 500,
+        "ltbCost": 5
+      }
+    ],
+    "customers": [
+      {
+        "id": "CUS-1",
+        "name": "Northstar Robotics (sample)",
+        "product": "Atlas Rev A",
+        "components": [
+          "SEN-101",
+          "PMIC-202"
+        ],
+        "policy": "required",
+        "days": 15,
+        "cost": 8000
+      },
+      {
+        "id": "CUS-2",
+        "name": "FieldVision Labs (sample)",
+        "product": "Atlas Rev A",
+        "components": [
+          "SEN-101"
+        ],
+        "policy": "review",
+        "days": 0,
+        "cost": 0
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "S01",
+      "name": "Minor sensor delay",
+      "type": "supplier",
+      "component": "SEN-101",
+      "task": "B",
+      "delay": 3,
+      "cost": 500,
+      "approval": 0,
+      "cert": 0,
+      "baselineDate": "2027-03-01",
+      "revisedDate": "2027-03-01",
+      "launchSlip": 0,
+      "directCost": 500,
+      "affectedTasks": 2
+    },
+    {
+      "id": "S02",
+      "name": "Major sensor delay",
+      "type": "supplier",
+      "component": "SEN-101",
+      "task": "B",
+      "delay": 10,
+      "cost": 1500,
+      "approval": 0,
+      "cert": 0,
+      "baselineDate": "2027-03-01",
+      "revisedDate": "2027-03-08",
+      "launchSlip": 5,
+      "directCost": 1500,
+      "affectedTasks": 5
+    },
+    {
+      "id": "S03",
+      "name": "Firmware delay",
+      "type": "firmware",
+      "component": "",
+      "task": "C",
+      "delay": 7,
+      "cost": 2000,
+      "approval": 0,
+      "cert": 0,
+      "baselineDate": "2027-03-01",
+      "revisedDate": "2027-03-10",
+      "launchSlip": 7,
+      "directCost": 2000,
+      "affectedTasks": 4
+    },
+    {
+      "id": "S04",
+      "name": "Validation retest",
+      "type": "test",
+      "component": "",
+      "task": "E",
+      "delay": 10,
+      "cost": 5000,
+      "approval": 0,
+      "cert": 0,
+      "baselineDate": "2027-03-01",
+      "revisedDate": "2027-03-15",
+      "launchSlip": 10,
+      "directCost": 5000,
+      "affectedTasks": 2
+    },
+    {
+      "id": "S05",
+      "name": "Engineering change",
+      "type": "engineering",
+      "component": "SEN-101",
+      "task": "A",
+      "delay": 8,
+      "cost": 4000,
+      "approval": 15,
+      "cert": 8000,
+      "baselineDate": "2027-03-01",
+      "revisedDate": "2027-03-25",
+      "launchSlip": 18,
+      "directCost": 12000,
+      "affectedTasks": 6
+    },
+    {
+      "id": "S06",
+      "name": "Sensor end of life",
+      "type": "eol",
+      "component": "SEN-101",
+      "task": "A",
+      "delay": 15,
+      "cost": 6000,
+      "approval": 15,
+      "cert": 8000,
+      "baselineDate": "2027-03-01",
+      "revisedDate": "2027-04-05",
+      "launchSlip": 25,
+      "directCost": 14000,
+      "affectedTasks": 6
+    }
+  ],
+  "recovery": [
+    {
+      "option": "Accept delay",
+      "launchSlip": 5,
+      "revisedDate": "2027-03-08",
+      "directCost": 1500
+    },
+    {
+      "option": "Expedite 5 working days",
+      "launchSlip": 0,
+      "revisedDate": "2027-03-01",
+      "directCost": 4500
+    },
+    {
+      "option": "Qualified alternative",
+      "launchSlip": 15,
+      "revisedDate": "2027-03-22",
+      "directCost": 13000
+    }
+  ],
+  "milestones": [
+    {
+      "id": "A",
+      "name": "Electronics design",
+      "owner": "Hardware",
+      "pred": "",
+      "duration": 10,
+      "baselineStart": 0,
+      "baselineEnd": 10,
+      "baselineFloat": 5,
+      "revisedStart": 0,
+      "revisedEnd": 10
+    },
+    {
+      "id": "B",
+      "name": "Prototype assembly",
+      "owner": "Manufacturing",
+      "pred": "A",
+      "duration": 5,
+      "baselineStart": 10,
+      "baselineEnd": 15,
+      "baselineFloat": 5,
+      "revisedStart": 20,
+      "revisedEnd": 25
+    },
+    {
+      "id": "C",
+      "name": "Firmware development",
+      "owner": "Firmware",
+      "pred": "",
+      "duration": 20,
+      "baselineStart": 0,
+      "baselineEnd": 20,
+      "baselineFloat": 0,
+      "revisedStart": 0,
+      "revisedEnd": 20
+    },
+    {
+      "id": "D",
+      "name": "System integration",
+      "owner": "Engineering",
+      "pred": "B|C",
+      "duration": 5,
+      "baselineStart": 20,
+      "baselineEnd": 25,
+      "baselineFloat": 0,
+      "revisedStart": 25,
+      "revisedEnd": 30
+    },
+    {
+      "id": "E",
+      "name": "Validation & certification",
+      "owner": "Quality",
+      "pred": "D",
+      "duration": 10,
+      "baselineStart": 25,
+      "baselineEnd": 35,
+      "baselineFloat": 0,
+      "revisedStart": 30,
+      "revisedEnd": 40
+    },
+    {
+      "id": "F",
+      "name": "Manufacturing readiness",
+      "owner": "Operations",
+      "pred": "B",
+      "duration": 7,
+      "baselineStart": 15,
+      "baselineEnd": 22,
+      "baselineFloat": 13,
+      "revisedStart": 25,
+      "revisedEnd": 32
+    },
+    {
+      "id": "G",
+      "name": "Pilot build & launch",
+      "owner": "Program",
+      "pred": "E|F",
+      "duration": 5,
+      "baselineStart": 35,
+      "baselineEnd": 40,
+      "baselineFloat": 0,
+      "revisedStart": 40,
+      "revisedEnd": 45
+    }
+  ]
+}

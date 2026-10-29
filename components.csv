@@ -1,0 +1,3 @@
+id,name,product,tasks,available,stock,demand,unitCost,ltbStock,ltbCost
+"SEN-101","Image sensor","Atlas Rev A","B","10","180","60","48","300","52"
+"PMIC-202","Power controller","Atlas Rev A","B","8","240","60","4","500","5"

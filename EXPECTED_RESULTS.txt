@@ -1,0 +1,29 @@
+S01: Minor sensor delay | baseline 2027-03-01 | revised 2027-03-01 | +0 working days | direct cost $500
+S02: Major sensor delay | baseline 2027-03-01 | revised 2027-03-08 | +5 working days | direct cost $1500
+S03: Firmware delay | baseline 2027-03-01 | revised 2027-03-10 | +7 working days | direct cost $2000
+S04: Validation retest | baseline 2027-03-01 | revised 2027-03-15 | +10 working days | direct cost $5000
+S05: Engineering change | baseline 2027-03-01 | revised 2027-03-25 | +18 working days | direct cost $12000
+S06: Sensor end of life | baseline 2027-03-01 | revised 2027-04-05 | +25 working days | direct cost $14000
+
+S02 recovery: [
+  {
+    "option": "Accept delay",
+    "launchSlip": 5,
+    "revisedDate": "2027-03-08",
+    "directCost": 1500
+  },
+  {
+    "option": "Expedite 5 working days",
+    "launchSlip": 0,
+    "revisedDate": "2027-03-01",
+    "directCost": 4500
+  },
+  {
+    "option": "Qualified alternative",
+    "launchSlip": 15,
+    "revisedDate": "2027-03-22",
+    "directCost": 13000
+  }
+]
+
+EOL coverage: 180 / 60 = 3 months. (180 + 300) / 60 = 8 months. Extra inventory cash = 300 * 52 = $15,600. This is separate from redesign and qualification cost.

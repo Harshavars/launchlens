@@ -1,0 +1,8 @@
+id,name,owner,days,pred
+"A","Electronics design","Hardware","10",""
+"B","Prototype assembly","Manufacturing","5","A"
+"C","Firmware development","Firmware","20",""
+"D","System integration","Engineering","5","B|C"
+"E","Validation & certification","Quality","10","D"
+"F","Manufacturing readiness","Operations","7","B"
+"G","Pilot build & launch","Program","5","E|F"
